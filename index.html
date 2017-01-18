@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <title>Global Crops</title>
+    <meta http-equiv='content-type' content='text/html;charset=utf-8' />
+    <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name='author' content='Esri' />
+    <meta name='keywords' content='' />
+    <meta name='description' content='' />
+    <link type='image/ico' rel='shortcut icon' href='img/favicon.ico' />
+    <link type='image/ico' rel='icon' href='img/favicon.ico' />
+    <link type='image/ico' rel='apple-touch-icon' href='img/apple-touch-icon.png' />
+    <link type='text/css' rel='stylesheet' href='css/bootstrap.min.css' />
+    <link type='text/css' rel='stylesheet' href='css/bootstrap-slider.min.css' />
+    <link type='text/css' rel='stylesheet' href='//fast.fonts.com/cssapi/23855eec-5fdf-4594-9898-0113a04bfef0.css' />
+    <link type='text/css' rel='stylesheet' href='//js.arcgis.com/3.13/esri/css/esri.css' />
+    <link type='text/css' rel='stylesheet' href='index.css' />
+    <script type='text/javascript' src='js/jquery-2.1.3.min.js'></script>
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/bootstrap-slider.min.js'></script>
+    <script type='text/javascript' src='js/d3.js'></script>
+    <script type='text/javascript' src='//js.arcgis.com/3.13compact/'></script>
+    <script type='text/javascript' src='index.js'></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-10866840-17', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <div id='middle'>
+        <div id='map'></div>
+        <div id='prototype'>PROTOTYPE</div>
+        <div id='credit'>Data: <a href='http://www.sustainabilityconsortium.org/our-products/' target='_blank'>Probable Sourcing Layers</a> (TSC), <a href='http://earthenginepartners.appspot.com/science-2013-global-forest' target='_blank'>Forest Change 2000-2012</a>, <a href='http://data.globalforestwatch.org/datasets/93ecbfa0542c42fdaa8454fa42a6cc27' target='_blank'>Hansen</a></div>
+        <div id='button-deforestation'>
+            <div id='button-deforestation-text'>Show Deforestation</div>
+        </div>
+    </div>
+    <div id='top'>
+        <a id='tsc-logo' href='http://www.sustainabilityconsortium.org/' target='_blank'>
+            <img src='img/tsc.png' />
+        </a>
+        <div id='heading-text'>Deforestation in my Supply Chain</div>
+        <div id='description-text'>App to Answer: TSC Key Performance Indicator</div>
+        <a id='esri-logo' href='http://www.esri.com' target='_blank'>
+            <img src='img/esri-transparent.png' />
+        </a>
+    </div>
+    <div id='bottom'>
+        <div id='bottom-middle'>
+            <div id='bottom-middle-panel1'>
+                <div id='panel-title-1'>I source my commodities from here:</div>
+                <div id='crop-list' class='list-group'>
+                    <a href='#' class='list-group-item' data-layer='USA_Cocoa_Def.tif' data-field='usa_cocoa'>USA - Cocoa</a>
+                    <a href='#' class='list-group-item' data-layer='USA_CoffeeArabica_Def.tif' data-field='usa_coffee_arabica'>USA - Coffee - Arabica</a>
+                    <a href='#' class='list-group-item' data-layer='USA_CoffeeRobusta_Def.tif' data-field='usa_coffee_robusta'>USA - Coffee - Robusta</a>
+                    <a href='#' class='list-group-item' data-layer='USA_CoffeeAllTypes_Def.tif' data-field='usa_coffee_all'>USA - Coffee - All</a>
+                    <a href='#' class='list-group-item' data-layer='USA_Cotton_Def.tif' data-field='usa_cotton'>USA - Cotton</a>
+                    <a href='#' class='list-group-item' data-layer='USA_Maize_Def.tif' data-field='usa_maize'>USA - Maize</a>
+                    <a href='#' class='list-group-item' data-layer='USA_Wheat_Def.tif' data-field='usa_wheat'>USA - Wheat</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Banana_Def.tif' data-field='global_banana'>Global - Banana</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Barley_Def.tif' data-field='global_barley'>Global - Barley</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Cocoa_Def.tif' data-field='global_cocoa'>Global - Cocoa</a>
+                    <a href='#' class='list-group-item' data-layer='Global_CoffeeArabica_Def.tif' data-field='global_coffee_arabica'>Global - Coffee - Arabica</a>
+                    <a href='#' class='list-group-item' data-layer='Global_CoffeeRobusta_Def.tif' data-field='global_coffee_robusta'>Global - Coffee - Robusta</a>
+                    <a href='#' class='list-group-item' data-layer='Global_CoffeeAllTypes_Def.tif' data-field='global_coffee_all'>Global - Coffee - All</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Maize_Def.tif' data-field='global_maize'>Global - Maize</a>
+                    <a href='#' class='list-group-item' data-layer='Global_OilPalm_Def.tif' data-field='global_oilpalm'>Global - Oil Palm</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Rice_Def.tif' data-field='global_rice'>Global - Rice</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Soybean_Def.tif' data-field='global_soybean'>Global - Soy Bean</a>
+                    <a href='#' class='list-group-item' data-layer='Global_Wheat_Def.tif' data-field='global_wheat'>Global - Wheat</a>
+                </div>
+            </div>
+            <div id='bottom-middle-panel2'>
+                <div id='panel-title-2'>I source this many millions of tons:</div>
+                <input id='kpi-slider' />
+                <div id='panel-title-3'>Of which, the following quantity may be from land recently deforested:</div>
+                <div id='kpi-impact-value'>0 tons</div>
+            </div>
+            <div id='bottom-middle-panel3'>
+                <div id='panel-title-4'>Breakdown by Region</div>
+                <div id='chart'></div>
+                <div id='attribute-country'></div>
+                <div id='attribute-size'></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
